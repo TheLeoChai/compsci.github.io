@@ -1,0 +1,300 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="footer.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="../resources/img/logo-favicon.png" type="image/x-icon">
+<link href="header.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- general stuff needed for every html-->
+<title>WOSS compsci</title>
+<link href="index.css" rel="stylesheet" type="text/css">
+<script type="text/javascript">
+	$(document).ready(function(){
+			 var curimg=0;
+			 var lastimg=0;
+			 $(".pager-item").on("click", function(){
+				 var imgId = parseInt($(this).attr("data-btnid"));//get the number of button clicked
+					 var btnId = $(this).attr("data-btnid");//get btnId
+					 if (btnId === "button-next"){
+						 imgId = curimg+1;
+					 }
+					 else if (btnId=== "button-prev"){
+						 imgId = curimg-1;
+					 }
+				 if(imgId==-1){
+					 imgId=2;//change as amount of pic change
+				 }//4 to 1
+				 if(imgId==3){
+					 imgId=0;//change as amount of pic change
+				 }//0 to 4
+				 if(imgId==curimg){
+					 return;
+				 }//what to do if click same location
+				 var a,b;//variable for calculation
+				 $("#img"+curimg).css('position','absolute');//change to get ready for transition
+				 $("#img"+imgId).css('position','absolute');//change to get ready for transition
+				 for(i=0;i<=10;i++){
+					 a=i/10;
+					 b=1-a;
+					 $("#img"+imgId).fadeTo(5,a);
+					 $("#img"+curimg).fadeTo(5,b);
+				 }//cool transition
+				 lastimg=curimg;//set last img to cur img
+				 $("#btn"+curimg).css('background-color', 'transparent');//change pager item color
+				 $("#btn"+imgId).css('background-color', '#c1c1c1');//change pager item color
+				 $(".pager-item").css('display', 'none');//refresh pageritem
+				 $(".pager-item").css('display', 'inline' );//refresh pageritems
+				 if(curimg==imgId){
+					 return;
+				 }
+				 else if(lastimg==0 && imgId==2){
+					 //move right
+				 $("#imgtxt"+imgId).css({'opacity': '0', 'display': 'inline' ,left: '-=20px'}).animate({left: '+=20px', opacity: '1'});
+				 $("#imgtxt"+lastimg).css('display','none');
+				 }
+				 else if(curimg<imgId || imgId==0 && lastimg==2){
+					 //move left
+				 $("#imgtxt"+imgId).css({'opacity': '0', 'display': 'inline' ,left: '+=20px'}).animate({left: '-=20px', opacity: '1'});
+				 $("#imgtxt"+lastimg).css('display','none');
+				 }
+				 else if(curimg>imgId){
+					 //move right
+				 $("#imgtxt"+imgId).css({'opacity': '0', 'display': 'inline' ,left: '-=20px'}).animate({left: '+=20px', opacity: '1'});
+				 $("#imgtxt"+lastimg).css('display','none');
+				 }
+				 curimg=imgId;
+			 });
+			
+		 });
+</script> <!-- image slideshow script-->
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#home").css('color','#eb6083');
+	});
+	</script> <!-- set home -->
+<script type="text/javascript">
+	console.log('before-load');
+	$(document).ready(function(){
+	console.log('loaded');
+		var lastScrollTop = 0;
+		$(window).scroll(function(event){
+			console.log('scrolled');
+   			var st = $(this).scrollTop();
+   			if (st > lastScrollTop && $(window).scrollTop() > 75){
+				
+				$('#header-wrap').fadeOut(500);
+				$("#header-ul").fadeOut(500);
+       			// downscroll code
+				console.log('scroll-down');
+   				lastScrollTop = st;
+   			} 
+			else{
+				$('#header-wrap').fadeIn(200);
+				$("#header-ul").fadeIn(200);
+				// upscroll code
+				//console.log('scroll-up');
+   				lastScrollTop = st;
+   			}
+   		lastScrollTop = st;
+			
+		});
+	});
+	</script> <!--nav hide-->
+<script type="text/javascript">
+	console.log("getting ready to run");
+	$(document).ready(function(){
+		console.log("ready to run code");
+		$("#menu-icon").on("click", function(){
+			$(".header-list-item").fadeToggle();
+			console.log("clicked");
+		});
+	});
+	</script> <!--phone nav menu-->
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("#blocker").on("click", function(){
+			console.log("closing");
+  			$("#classroom-popup").fadeOut();
+  			$("#email-popup").fadeOut();
+			$("#blocker").fadeOut();
+		});
+		$(".close").on("click", function(){			
+			console.log("closing");
+  			$("#classroom-popup").fadeOut();
+  			$("#email-popup").fadeOut();
+			$("#blocker").fadeOut();
+		});
+		$("#classroom").on("click", function(){
+			$("#classroom-popup").fadeIn();
+			$("#blocker").fadeIn();
+			console.log("classroom");
+		});
+		$("#email").on("click", function(){
+			$("#email-popup").fadeIn();
+			$("#blocker").fadeIn();
+			console.log("email");
+		});
+		
+	});
+	</script> <!--popup function-->
+<script type="text/javascript">
+	$(document).ready(function(){
+		function copyStringToClipboard (str) {
+			// Create new element
+			var el = document.createElement('textarea');
+			// Set value (string to be copied)
+			el.value = str;
+   		// Set non-editable to avoid focus and move outside of view
+			el.setAttribute('readonly', '');
+			el.style = {position: 'absolute', left: '-9999px'};
+			document.body.appendChild(el);
+   		// Select text inside element
+			el.select();
+			// Copy text to clipboard
+			document.execCommand('copy');
+			// Remove temporary element
+			document.body.removeChild(el);
+		}
+		$(".content").on("click", function(){
+			copyStringToClipboard("auij0h");
+			console.log("copied");
+			alert("classroom code copied to clip board");
+			
+		});
+	});
+	
+	</script> <!--copy code-->
+</head>
+
+<body>
+	<!--<div id = "header-wrap">
+			<ul id="header-ul">
+				<li id="nav-logo"><a><img src="../resources/img/nav-logo.png"></a></li>
+				<li class="header-list-item" id ="home"><a href="index.html" >HOME</a></li>
+				<li class="header-list-item" id="product"><a href="product.html">PRODUCT</a></li>
+				<li class="header-list-item" id="FAQ"><a href="FAQ.html">FAQ</a></li>
+				<li class="header-list-item" id="contact-us"><a>CONTACT US</a></li>
+			</ul>
+		</div>-->
+		
+	<div id = "header-wrap">
+			<ul id="header-ul">
+				<li id="nav-logo"><a><img src="../resources/img/nav-logo.png"></a></li>
+				<li id="menu-icon"><img src="../resources/img/menu.png"></li>
+				<li class="header-list-item" id ="home"><a href="index.html" >HOME</a></li>
+				<li class="header-list-item" id="executives"><a href="executives.html">EXECUTIVES</a></li>
+				<li class="header-list-item" id="sign-up"><a href="sign-up.html">SIGN UP</a></li>
+				<li class="header-list-item" id="lessons"><a href="lessons.html">LESSONS</a></li>
+			</ul>
+		</div>
+		<div id="spacer"></div>	
+<div id="top-pos"></div>
+<!-- slider in middle -->
+<div class="slidebox">
+	<div class="slide">
+		<a class="pager-item" id="button-prev" data-btnid="button-prev"> &#60 </a>
+		<a class="pager-item" id="button-next" data-btnid="button-next"> &#62 </a>
+		<div id="slideimgs">
+			<div>
+				<div id="img0" class="slideimg" data-imgid="0" alt="img name 1"> </div><!--image 1-->
+				<div id="img1" class="slideimg" data-imgid="1" alt="img name 2"> </div><!--image 2-->
+				<div id="img2" class="slideimg" data-imgid="2" alt="img name 3"> </div><!--image 3-->
+				<!--<div id="img3" class="slideimg" data-imgid="3" alt="img name 4"> </div><!--image 4-->
+				<!--<div id="img4" class="slideimg" data-imgid="4" alt="img name 5"> </div><!--image 5-->
+			</div>
+			<div class="imgtxt">
+				<div class="img-txt" id="imgtxt0"><i>New</i> Compsci website! <br> <!--<button type="button" id="trade-show-btn">click for more detail</button>--> <em>congratulations</em> to all the teams!</div></div>
+				<div class="img-txt" id="imgtxt1"> Lots of <em>free</em> computers <br> <i>Great</i> learning experience!</div>
+				<div class="img-txt" id="imgtxt2"> Learn how to <i>become</i> a <br><em>Leader</em></div>
+				<div class="img-txt" id="imgtxt3"> img 3</div>
+				<div class="img-txt" id="imgtxt4"> img 4</div>
+			</div>
+		</div>
+		<div class="pager">
+			<button class="pager-item" id="btn0" data-btnid="0"></button>
+			<button class="pager-item" id="btn1" data-btnid="1"></button>
+			<button class="pager-item" id="btn2" data-btnid="2"></button>
+			<!--<button class="pager-item" id="btn3" data-btnid="3"></button>
+			<!--<button class="pager-item" id="btn4" data-btnid="4"></button>-->
+		</div>
+	</div><!--slide show -->
+
+<div id="about-wrapper">
+	<div id="about-head">
+		<hr>
+		<h1>The <em>C</em>omp<em>S</em>ci <i>S</i>tory</h1>
+		<div id="about-text">
+			<div class="odd-lines"><div id="about-text-1">
+			<h1>Our History</h1><p>
+				The White Oaks Secondary School Computer Science club have existed for a long time. Our supervisors have extensive experience in teaching and guiding students to improve in the field of compsci and our  executives learnt how to teach from previous executives.
+			</p></div></div>
+			<div class="even-lines"><div id="about-text-2">
+			<h1>Our Goal</h1><p>
+				Our goal as the WOSS compsci club is to spread awareness of the importance of knowing how to code, as well as teaching the skills of how to be a successive coder to students in White Oaks Secondary School. We see the ability to code as a critical oppertunity for students to become successful in their future.
+			</p></div></div>
+			<div class="odd-lines"><div id="about-text-3">
+			<h1>What do we do</h1><p>
+				We have meetings every Tuesday in the computer science room in first floor and second floor. In first floor, we teach students applied computer science, which are basic coding that can be usefully applied to real life in useful senarios. In the second floor, we teach competative programming, aimed to prepare students for computer science competitions such as the CCC.
+			</p></div></div>
+			<div class="even-lines"><div id="about-text-4">
+			<h1>Our Interest</h1><p>
+				All of our executives and members are extremely passionate about computer science and technology. We are curious in learning, and enjoy problem solving. We try to make computer science fun to learn so that people can enjoy their time in the club while learning usefull knowledge in the field of computer science.
+			</p></div></div>
+			<div class="odd-lines"><div id="about-text-5">
+			<h1>Ours executives</h1><p>
+				Our executives are very hard working. They prepare lesson plans prior to each meetin in order to efficently deliver the lesson. They have also sacraficed their private time to organize events for the club. Apart from the hard efforts, our executives also have greate achievements on DMOJ and a variety of computer contests.
+			</p></div></div>
+		</div>
+		
+		
+	</div>
+</div>
+<!--
+<div id = "footer-wrap">
+	<ul id="footer-ul">
+		<li id="footer-logo"><a><img src="../resources/img/nav-logo.png"></a></li>
+		<li class="footer-list-item" id ="email"><a href="" >E-mail</a></li>
+		<li class="footer-list-item" id="facebook"><a>Facebook</a></li>
+		<li class="footer-list-item" id="instagram"><a href="FAQ.html">Instagram</a></li>
+		<li class="footer-list-item" id="twitter"><a>Twitter</a></li>
+	</ul>
+	
+</div>-->
+
+<div id = "footer-wrap">
+	<ul id="footer-ul">
+		<li id="footer-logo"><a><img src="../resources/img/nav-logo.png"></a></li>
+		<li class="footer-list-item" id ="email"><a>E-mail</a></li>
+		<li class="footer-list-item" id="classroom"><a>Classroom</a></li>
+		<li class="footer-list-item" id="instagram"><a href="https://www.instagram.com/woss_compsci/" target="_blank">Instagram</a></li>
+		<!--<li class="footer-list-item" id="twitter"><a>Twitter</a></li>-->
+	</ul>
+	
+</div>
+
+<div id="blocker"></div>
+
+
+<div class = "pop-up" id="classroom-popup">
+	<h1 class="popup-heading">Here is the classroom code if you have not yet joined</h1>
+	<p class="content">auij0h</p><br><br><br>
+	<a class="buttonbox" href="https://classroom.google.com/u/1/c/NzYyMTMwMTgzM1pa" target="_blank">Click to go to classroom</a></h1>
+	<img class = "close" src="../resources/img/close.png">
+</div>
+
+
+<div class = "pop-up" id="email-popup">
+	<h1 class="popup-heading">Here are our list of executives members. Click to email them! </h1>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=chinge%40hdsb.ca&authuser=1" target="_blank">Supervisor - Edmund Ching</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1xuale%40hdsb.ca&authuser=1" target="_blank">President - Alex Xu</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1matarfar%40hdsb.ca&authuser=1" target="_blank">Executive - Farris Matar</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1pavlovicmar%40hdsb.ca&authuser=1" target="_blank">Executive - Maria Pavlovic</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1yangmat2%40hdsb.ca&authuser=1" target="_blank">Executive - Matthew Yang</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1yangtim%40hdsb.ca&authuser=1" target="_blank">Executive - Tim Yang</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1KHAYRULLINT%40hdsb.ca&authuser=1" target="_blank">Executive - Timur Khayrullin</a></h2>
+	<img class = "close" src="../resources/img/close.png">
+</div>
+</body>
+</html>

@@ -1,0 +1,174 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Sign Up</title>
+
+<link href="footer.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="../resources/img/logo-favicon.png" type="image/x-icon">
+<link href="header.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<link href="sign-up.css" rel="stylesheet" type="text/css">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> 
+<!-- general stuff needed for every html-->
+
+
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#sign-up").css('color','#eb6083');
+	});
+	</script> <!-- set home -->
+<script type="text/javascript">
+	//console.log('before-load');
+	$(document).ready(function(){
+	//console.log('loaded');
+		var lastScrollTop = 0;
+		$(window).scroll(function(event){
+		//console.log('scrolled');
+   			var st = $(this).scrollTop();
+   			if (st > lastScrollTop && $(window).scrollTop() > 75){
+				$('#header-wrap').fadeOut(500);
+       			// downscroll code
+				//console.log('scroll-down');
+   			} 
+			else {
+				$('#header-wrap').fadeIn(200);
+				// upscroll code
+				//console.log('scroll-up');
+   			}
+   		lastScrollTop = st;
+		});
+	});
+	</script> <!-- nav disappear -->
+<script type="text/javascript">
+	console.log("getting ready to run");
+	$(document).ready(function(){
+		console.log("ready to run code");
+		$("#menu-icon").on("click", function(){
+			$(".header-list-item").fadeToggle();
+			console.log("clicked");
+		});
+	});
+	</script> <!--phone nav menu-->
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("#blocker").on("click", function(){
+			console.log("closing");
+  			$("#classroom-popup").fadeOut();
+  			$("#email-popup").fadeOut();
+			$("#blocker").fadeOut();
+		});
+		$(".close").on("click", function(){			
+			console.log("closing");
+  			$("#classroom-popup").fadeOut();
+  			$("#email-popup").fadeOut();
+			$("#blocker").fadeOut();
+		});
+		$("#classroom").on("click", function(){
+			$("#classroom-popup").fadeIn();
+			$("#blocker").fadeIn();
+			console.log("classroom");
+		});
+		$("#email").on("click", function(){
+			$("#email-popup").fadeIn();
+			$("#blocker").fadeIn();
+			console.log("email");
+		});
+		
+	});
+	</script> <!--popup function-->
+<script type="text/javascript">
+	$(document).ready(function(){
+		function copyStringToClipboard (str) {
+			// Create new element
+			var el = document.createElement('textarea');
+			// Set value (string to be copied)
+			el.value = str;
+   		// Set non-editable to avoid focus and move outside of view
+			el.setAttribute('readonly', '');
+			el.style = {position: 'absolute', left: '-9999px'};
+			document.body.appendChild(el);
+   		// Select text inside element
+			el.select();
+			// Copy text to clipboard
+			document.execCommand('copy');
+			// Remove temporary element
+			document.body.removeChild(el);
+		}
+		$(".content").on("click", function(){
+			copyStringToClipboard("auij0h");
+			console.log("copied");
+			alert("classroom code copied to clip board");
+			
+		});
+	});
+	
+	</script> <!--copy code-->
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#h1-container").on("mouseover", function(){
+			$("#h1-container").fadeOut();
+		});
+		$(".mapouter").on("mouseleave", function(){
+			$("#h1-container").fadeIn();
+		});
+	});
+</script> <!--map script-->
+</head>
+
+<body>
+<div id = "header-wrap">
+			<ul id="header-ul">
+				<li id="nav-logo"><a><img src="../resources/img/nav-logo.png"></a></li>
+				<li id="menu-icon"><img src="../resources/img/menu.png"></li>
+				<li class="header-list-item" id ="home"><a href="index.html" >HOME</a></li>
+				<li class="header-list-item" id="executives"><a href="executives.html">EXECUTIVES</a></li>
+				<li class="header-list-item" id="sign-up"><a href="sign-up.html">SIGN UP</a></li>
+				<li class="header-list-item" id="lessons"><a href="lessons.html">LESSONS</a></li>
+			</ul>
+		</div>
+<div id="h1-container"><h1>Want to sign up for <em>Computer Science</em> club?</h1></div>
+
+<div class="mapouter"><div class="gmap_canvas"><iframe width="100%" height="100%" id="gmap_canvas" src="https://maps.google.com/maps?q=White%20Oaks%20Secondary%20School&t=&z=15&ie=UTF8&iwloc=&output=embed" frameborder="0" scrolling="no" marginheight="0" marginwidth="0"></iframe></div><style>.mapouter{position:relative;text-align:right;height:50vh;width:100vw;}.gmap_canvas {overflow:hidden;background:none!important;height:50vh;width:100vw;}</style></div>
+
+
+<h2 id="form-h2">Please fill in the sign-up form</h2>
+<iframe src="https://docs.google.com/forms/d/e/1FAIpQLSe6Li8U49RPWBTYJNrgISgl9mkQ89fkU1XFI3Gg0hfLIqQAFA/viewform?embedded=true" width="100%" height="1218" frameborder="0" marginheight="0" marginwidth="0"></iframe>
+
+<div id = "footer-wrap">
+	<ul id="footer-ul">
+		<li id="footer-logo"><a><img src="../resources/img/nav-logo.png"></a></li>
+		<li class="footer-list-item" id ="email"><a>E-mail</a></li>
+		<li class="footer-list-item" id="classroom"><a>Classroom</a></li>
+		<li class="footer-list-item" id="instagram"><a href="https://www.instagram.com/woss_compsci/" target="_blank">Instagram</a></li>
+		<!--<li class="footer-list-item" id="twitter"><a>Twitter</a></li>-->
+	</ul>
+	
+</div>
+
+<div id="blocker"></div>
+
+
+<div class = "pop-up" id="classroom-popup">
+	<h1 class="popup-heading">Here is the classroom code if you have not yet joined</h1>
+	<p class="content">auij0h</p><br><br><br>
+	<a class="buttonbox" href="https://classroom.google.com/u/1/c/NzYyMTMwMTgzM1pa" target="_blank">Click to go to classroom</a></h1>
+	<img class = "close" src="../resources/img/close.png">
+</div>
+
+
+<div class = "pop-up" id="email-popup">
+	<h1 class="popup-heading">Here are our list of executives members. Click to email them! </h1>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=chinge%40hdsb.ca&authuser=1" target="_blank">Supervisor - Edmund Ching</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1xuale%40hdsb.ca&authuser=1" target="_blank">President - Alex Xu</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1matarfar%40hdsb.ca&authuser=1" target="_blank">Executive - Farris Matar</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1pavlovicmar%40hdsb.ca&authuser=1" target="_blank">Executive - Maria Pavlovic</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1yangmat2%40hdsb.ca&authuser=1" target="_blank">Executive - Matthew Yang</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1yangtim%40hdsb.ca&authuser=1" target="_blank">Executive - Tim Yang</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1KHAYRULLINT%40hdsb.ca&authuser=1" target="_blank">Executive - Timur Khayrullin</a></h2>
+	<img class = "close" src="../resources/img/close.png">
+</div>
+
+</body>
+</html>

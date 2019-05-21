@@ -1,0 +1,155 @@
+@charset "utf-8";
+
+#footer-wrap{
+	width:100%;
+	height:8vw;
+	bottom:0;
+}
+
+#footer-wrap > ul {
+	list-style: none;
+	text-align: left;
+	height:5vw;
+	width:100%;
+	padding:1.5vw 0;
+	margin:0;
+	background-color: #39c5bb;
+}
+
+#footer-logo{
+	float:left;
+	margin: 0 3vw 0 15vw;
+	border-right: solid 1px #eb6083;
+}
+
+#footer-logo > a > img{
+	height: 5vw;
+	float: left;
+	display: inline-block;
+	margin:auto;
+}
+
+.footer-list-item{
+	font-family: 'Open Sans', sans-serif;
+	height: 5vw;
+	font-size: 1.3vw;
+	font-weight: bold;
+	display: inline-block;
+	text-align: center;
+	width: 10vw;	
+	margin: 0;
+	color: #fff;
+    -webkit-transition: color 100ms linear;
+    -ms-transition: color 100ms linear;
+    transition: color 100ms linear;
+}
+
+.footer-list-item:hover{
+	color: #eb6083;
+    -webkit-transition: color 100ms linear;
+    -ms-transition: color 100ms linear;
+    transition: color 100ms linear;
+	cursor: pointer;
+}
+
+.footer-list-item > a {
+	height: auto;
+	color:inherit;
+	display: inline-block;
+	margin:0;
+	padding:1.5vw 0.5vw;
+	text-decoration: none;
+}
+
+#contact-us{
+	margin-right:64px;
+}
+
+
+.pop-up{
+	font-family: 'Open Sans', sans-serif;
+	position:fixed;
+	background-color: rgba(255,255,255,0.70);
+	width:60vw;
+	height:60vh;
+	top:10vh;
+	left:15vw;
+	border-top:6px solid #39c5bb;
+	padding:5vw;
+  	box-shadow:0px 0px 10px grey;  
+	text-align: center;
+	z-index:100;
+	display:none;
+	text-align: center;
+}
+
+.popup-heading{
+	color: #f39700;
+	text-shadow: 0 0 1px #ccc;
+ 	-moz-text-shadow: 0 0 1px #ccc;
+  	-webkit-text-shadow: 0 0 1px #ccc;
+}
+
+.content{
+	font-family: 'Open Sans', sans-serif;
+	font-size: 1.5em;
+	width:27vw;
+	padding:2vw;
+	text-align:center;
+	background-color:rgba(204,204,204,1.00);
+	display: inline-block;
+}
+
+.content:hover{
+	cursor: pointer;
+}
+
+.buttonbox{
+	font-family: 'Open Sans', sans-serif;
+	display:inline-block;
+	text-align: center;
+	width:25vw;
+	height:3vw;
+	font-size:1.7vw;
+	padding:3vw;
+	background-color:rgba(57,197,187,0.50);
+	font-weight:1000;
+	color:black;
+}
+
+.buttonbox:hover{
+	cursor: pointer;
+}
+
+.popup > h2{
+	margin:0;
+}
+
+a{
+	font-family: 'Open Sans', sans-serif;
+	text-decoration: none;
+	color:black;
+}
+
+.close{
+	width:2vw;
+	height:2vw;
+	position:absolute;
+	top:1vh;
+	right:1vw;
+}
+
+.close:hover{
+	cursor:pointer;	
+}
+
+#blocker{
+	width:100vw;
+	height:100vw;
+	z-index: 99;
+	position: fixed;
+	background-color:rgba(255,255,255,0.50);
+    top:0px;
+    left:0px;
+	display:none;
+}

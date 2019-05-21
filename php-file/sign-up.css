@@ -1,0 +1,42 @@
+@charset "utf-8";
+
+
+.mapouter{
+	width:100vw;
+	height:50vh;
+}
+
+.gmap_canvas{
+	width:100vw;
+	height:50vh;
+}
+
+#h1-container{
+	position: absolute;
+	z-index: 50;
+	width:100%;
+	text-align: center;
+	padding-top:20vh;
+	background-color: rgba(255,255,255,0.70);
+	height: 30vh;
+}
+
+#h1-container > h1{
+	text-align: center;
+	width: 100%;
+	display: inline-block;
+	font-family: 'Open Sans', sans-serif;	
+	
+}
+
+em{
+	text-decoration: none;
+	font-style: normal;
+	color:#39c5bb;
+}
+
+#form-h2{
+	text-align: center;
+	margin: 5vw 0 3vw 0;
+}
+

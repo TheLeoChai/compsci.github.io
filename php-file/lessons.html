@@ -1,0 +1,314 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<link href="lessons.css" rel="stylesheet" type="text/css">
+<link href="footer.css" rel="stylesheet" type="text/css">
+<link rel="shortcut icon" href="../resources/img/logo-favicon.png" type="image/x-icon">
+<link href="header.css" rel="stylesheet" type="text/css">
+<link href="https://fonts.googleapis.com/css?family=Open+Sans" rel="stylesheet">
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script> <!-- general stuff needed for every html-->
+<title>Past Lessons</title>
+<script type="text/javascript">
+	$(document).ready(function(){
+		$("#lessons").css('color','#eb6083');
+	});
+	</script> <!--set home-->
+<script type="text/javascript">
+	function footerFunction(){
+		var disTop = $("#option1").outerHeight();
+		var otherDis = $(window).outerHeight() - $("#header-wrap").outerHeight() - $("#footer-wrap").outerHeight() - $("#h1-container").outerHeight() ;
+		console.log($("#option1").outerHeight());
+		
+		if(otherDis  > disTop){
+			console.log('smaller');
+			$('#footer-wrap').css({
+				"position":"fixed",
+				"bottom":"0"
+			});
+		}
+		else if(otherDis  < disTop){
+			console.log('bigger');
+			$('#footer-wrap').css("position","relative");
+		}
+	}
+	
+	$(document).ready(function(){
+		var dataid;
+		footerFunction();
+			console.log('code loaded');
+		$(".qa-list").on("click", function(){
+			console.log('clicked');
+			dataid = "#"+$(this).attr("data-id");
+			console.log(dataid);
+			$(dataid).slideToggle(100);
+			setInterval( function(){ 
+			footerFunction();
+			// Do something after 1 second 
+  			}  , 100 );
+			
+		});
+	});
+	</script> <!--set footer-->
+<script type="text/javascript">
+	console.log("getting ready to run");
+	$(document).ready(function(){
+		console.log("ready to run code");
+		$("#menu-icon").on("click", function(){
+			$(".header-list-item").fadeToggle();
+			console.log("clicked");
+		});
+	});
+	</script> <!--phone nav menu-->
+<!--<script type="text/javascript">
+	$(document).ready(function(){
+	console.log($(document).height());
+	console.log($(window).height());
+		if($('html').outerHeight() < $(window).height()*0.95-75){
+			console.log('smaller');
+			$('#footer-wrap').css({
+				"position":"fixed",
+				"bottom":"0"
+			});
+		}
+		else if($('html').outerHeight() > $(window).height()*0.95-75){
+			console.log('bigger');
+			$('#footer-wrap').css("position","relative");
+		}
+	$(document).on('click', function(){
+		
+	});
+	});
+	
+</script>-->
+<script type="text/javascript">
+	console.log('before-load');
+	$(document).ready(function(){
+	console.log('loaded');
+		var lastScrollTop = 0;
+		$(window).scroll(function(event){
+		console.log('scrolled');
+   			var st = $(this).scrollTop();
+   			if (st > lastScrollTop && $(window).scrollTop() > 75){
+				$('#header-wrap').fadeOut(500);
+				$("#header-ul").fadeOut(500);
+       			// downscroll code
+				//console.log('scroll-down');
+   			} 
+			else if(st = lastScrollTop){
+				$('#header-wrap').fadeIn(200);
+				$("#header-ul").fadeIn(200);
+				// upscroll code
+				//console.log('scroll-up');
+   			}
+   		lastScrollTop = st;
+			
+		});
+	});
+	</script> <!--nav hide-->
+<script type="text/javascript">
+	$(document).ready(function(){
+		
+		$("#blocker").on("click", function(){
+			console.log("closing");
+  			$("#classroom-popup").fadeOut();
+  			$("#email-popup").fadeOut();
+			$("#blocker").fadeOut();
+		});
+		$(".close").on("click", function(){			
+			console.log("closing");
+  			$("#classroom-popup").fadeOut();
+  			$("#email-popup").fadeOut();
+			$("#blocker").fadeOut();
+		});
+		$("#classroom").on("click", function(){
+			$("#classroom-popup").fadeIn();
+			$("#blocker").fadeIn();
+			console.log("classroom");
+		});
+		$("#email").on("click", function(){
+			$("#email-popup").fadeIn();
+			$("#blocker").fadeIn();
+			console.log("email");
+		});
+		
+	});
+	</script> <!--popup function-->
+<script type="text/javascript">
+	$(document).ready(function(){
+		function copyStringToClipboard (str) {
+			// Create new element
+			var el = document.createElement('textarea');
+			// Set value (string to be copied)
+			el.value = str;
+   		// Set non-editable to avoid focus and move outside of view
+			el.setAttribute('readonly', '');
+			el.style = {position: 'absolute', left: '-9999px'};
+			document.body.appendChild(el);
+   		// Select text inside element
+			el.select();
+			// Copy text to clipboard
+			document.execCommand('copy');
+			// Remove temporary element
+			document.body.removeChild(el);
+		}
+		$(".content").on("click", function(){
+			copyStringToClipboard("auij0h");
+			console.log("copied");
+			alert("classroom code copied to clip board");
+			
+		});
+	});
+	
+	</script> <!--copy code-->
+</head>
+
+<body>
+	<!--<div id = "header-wrap">
+			<ul id="header-ul">
+				<li id="nav-logo"><a><img src="resources/img/nav-logo.png"></a></li>
+				<li class="header-list-item" id ="home"><a href="index.html" >HOME</a></li>
+				<li class="header-list-item" id="product"><a href="product.html">PRODUCT</a></li>
+				<li class="header-list-item" id="FAQ"><a href="FAQ.html">FAQ</a></li>
+				<li class="header-list-item" id="contact-us"><a>CONTACT US</a></li>
+			</ul>
+		</div>-->
+<div id = "header-wrap">
+			<ul id="header-ul">
+				<li id="nav-logo"><a><img src="../resources/img/nav-logo.png"></a></li>
+				<li id="menu-icon"><img src="../resources/img/menu.png"></li>
+				<li class="header-list-item" id ="home"><a href="index.html" >HOME</a></li>
+				<li class="header-list-item" id="executives"><a href="executives.html">EXECUTIVES</a></li>
+				<li class="header-list-item" id="sign-up"><a href="sign-up.html">SIGN UP</a></li>
+				<li class="header-list-item" id="lessons"><a href="lessons.html">LESSONS</a></li>
+			</ul>
+		</div>
+<div id="body-wrapper">
+<div id="h1-container">
+	<h1>Lessons</h1>
+</div>
+<!--<hr>-->
+<div class="options" id="option1">
+	<h2 class="qa-list" data-id="0">Unit 1 - (unit sub-headding)</h2>
+	<ul class="qa-list" id="0">
+		<li>
+		<h3 class="qa-list" data-id="0-0">Lesson 1</h3>
+		<p class="qa-list" id="0-0">Lesson 1 notes</p>
+		</li>
+		<li>
+		<h3 class="qa-list" data-id="0-1">Lesson 2</h3>
+		<p class="qa-list" id="0-1">Lesson 2 notes</p>
+		</li>
+		<li>
+		<h3 class="qa-list" data-id="0-2">Lesson 3</h3>
+		<p class="qa-list" id="0-2">Lesson 3 notes</p>
+		</li>
+		<li>
+		<h3 class="qa-list" data-id="0-3">Lesson 4</h3>
+		<p class="qa-list"  id="0-3">Lesson 4 notes</p>
+		</li>
+	</ul>
+	<h2 class="qa-list" data-id="1">Unit 2 - (unit sub-headding)</h2>
+	<ul class="qa-list" id="1">
+		<li>
+		<h3 class="qa-list" data-id="1-0">Lesson 1</h3>
+		<p class="qa-list" id="1-0">Lesson 1 notes (with video)
+		<br>
+		<iframe width="560" height="315" src="https://www.youtube.com/embed/1ItT0mxOtnk" frameborder="0" allow="accelerometer; autoplay; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+		</p>
+		</li>
+		<li>
+		<h3 class="qa-list" data-id="1-1">Leson 2</h3>
+		<p class="qa-list" id="1-1">Lesson 2 notes</p>
+		</li>
+		<li>
+		<h3 class="qa-list" data-id="1-2">Lesson 3</h3>
+		<p class="qa-list" id="1-2">Lesson 3 notes</p>
+		</li>
+		<!--<li>
+		<h3 class="qa-list" data-id="1-3">nani desuka?</h3>
+		<p class="qa-list"  id="1-3">shitenaiyo</p>
+		</li>-->
+	</ul>
+	<h2 class="qa-list" data-id="2">Unit 3 - (unit sub-headding)</h2>
+	<ul class="qa-list" id="2">
+		<li>
+		<h3 class="qa-list" data-id="2-0">Lesson 1</h3>
+		<p class="qa-list" id="2-0">Lesson 1 notes</p>
+		</li>
+		<li>
+		<h3 class="qa-list" data-id="2-1">Leson 2</h3>
+		<p class="qa-list" id="2-1">Lesson 2 notes</p>
+		</li>
+		<li>
+		<h3 class="qa-list" data-id="2-2">Lesson 3</h3>
+		<p class="qa-list" id="2-2">Lesson 3 notes</p>
+		</li>
+	</ul>
+	<h2 class="qa-list" data-id="3">Unit 4 - (unit sub-headding)</h2>
+	<ul class="qa-list" id="3">
+		<li>
+		<h3 class="qa-list" data-id="3-0">Lesson 1</h3>
+		<p class="qa-list" id="3-0">Lesson 1 notes (with video)</p>
+		</li>
+		<li>
+		<h3 class="qa-list" data-id="3-1">Leson 2</h3>
+		<p class="qa-list" id="3-1">Lesson 2 notes</p>
+		</li>
+		<li>
+		<h3 class="qa-list" data-id="3-2">Lesson 3</h3>
+		<p class="qa-list" id="3-2">Lesson 3 notes</p>
+		</li>
+		<!--<li>
+		<h3 class="qa-list" data-id="1-3">nani desuka?</h3>
+		<p class="qa-list"  id="1-3">shitenaiyo</p>
+		</li>-->
+	</ul>
+</div>
+
+<div id = "footer-wrap">
+	<ul id="footer-ul">
+		<li id="footer-logo"><a><img src="../resources/img/nav-logo.png"></a></li>
+		<li class="footer-list-item" id ="email"><a>E-mail</a></li>
+		<li class="footer-list-item" id="classroom"><a>Classroom</a></li>
+		<li class="footer-list-item" id="instagram"><a href="https://www.instagram.com/woss_compsci/" target="_blank">Instagram</a></li>
+		<!--<li class="footer-list-item" id="twitter"><a>Twitter</a></li>-->
+	</ul>
+	
+</div>
+
+<div id="blocker"></div>
+
+
+<div class = "pop-up" id="classroom-popup">
+	<h1 class="popup-heading">Here is the classroom code if you have not yet joined</h1>
+	<p class="content">auij0h</p><br><br><br>
+	<a class="buttonbox" href="https://classroom.google.com/u/1/c/NzYyMTMwMTgzM1pa" target="_blank">Click to go to classroom</a></h1>
+	<img class = "close" src="../resources/img/close.png">
+</div>
+
+
+<div class = "pop-up" id="email-popup">
+	<h1 class="popup-heading">Here are our list of executives members. Click to email them! </h1>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=chinge%40hdsb.ca&authuser=1" target="_blank">Supervisor - Edmund Ching</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1xuale%40hdsb.ca&authuser=1" target="_blank">President - Alex Xu</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1matarfar%40hdsb.ca&authuser=1" target="_blank">Executive - Farris Matar</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1pavlovicmar%40hdsb.ca&authuser=1" target="_blank">Executive - Maria Pavlovic</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1yangmat2%40hdsb.ca&authuser=1" target="_blank">Executive - Matthew Yang</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1yangtim%40hdsb.ca&authuser=1" target="_blank">Executive - Tim Yang</a></h2>
+	<h2 class="content-2"><a href="https://mail.google.com/mail/?view=cm&fs=1&to=1KHAYRULLINT%40hdsb.ca&authuser=1" target="_blank">Executive - Timur Khayrullin</a></h2>
+	<img class = "close" src="../resources/img/close.png">
+</div>
+
+<!--<div id = "footer-wrap">
+	<ul id="footer-ul">
+		<li id="footer-logo"><a><img src="resources/img/nav-logo.png"></a></li>
+		<li class="footer-list-item" id ="email"><a href="" >E-mail</a></li>
+		<li class="footer-list-item" id="facebook"><a>Facebook</a></li>
+		<li class="footer-list-item" id="instagram"><a href="FAQ.html">Instagram</a></li>
+		<li class="footer-list-item" id="twitter"><a>Twitter</a></li>
+	</ul>
+	
+</div>-->
+</body>
+</html>
